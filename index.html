@@ -7,16 +7,28 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="onInit()">
+    <img id="1" onclick="onImgSelect(this)" src="/img/1.jpg" alt="">
+    <img id="2" onclick="onImgSelect(this)" src="/img/2.jpg" alt="">
+    <!-- <div>
+        <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+    </div> -->
     <div class="main-layout">
         <div class="canvas-container">
-            <canvas id="my-canvas" width="400" height="400" style="outline: 1px solid green"></canvas>
+            <!-- <input class="background" type="text"> -->
+            <canvas id="my-canvas" width="1000" height="1000" style="outline: 2px solid green">
+            </canvas>
+          </div>
+          <div>
+            <input oninput="setLineTxt(this.value)" class="input-text1" type="text">
+            <input onchange="onSetColor(this.value)" class="color" type="color">
           </div>
     </div>
     
 
 
 
+    <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
