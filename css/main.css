@@ -12,6 +12,8 @@ body {
 
 .logo{
   margin-left: 20px;
+  font: 30px cursive;
+
 }
 
 .nav-bar{
@@ -21,13 +23,16 @@ body {
 
 .canvas-container {
     width: 50%;
-    height: 85vh;
+    height: 70vh;
     position: relative;
   }
 
 #my-canvas{
     margin-inline: auto;
+    max-width: 70vh;
+    max-height: 70vh;
     width: 100%;
+    min-width: 250px;
   }
 
 /* .background{
@@ -38,6 +43,23 @@ body {
 .main-layout{
     width: 100vw;
     display: none;
+    justify-content: space-around;
+    background-color: #e3e3e3;
+}
+
+.editing-settings{
+  padding-top: 20px;
+  display: grid;
+  /* grid-template-rows: 20px 20px 20px 20px; */
+  grid-template-rows: repeat(auto-fit, 50px);
+  width: 30vw;
+
+}
+
+.input-text1{
+  border-radius: 10px;
+  border: none;
+  height: 20px;
 }
 
 .text1{
@@ -51,7 +73,7 @@ body {
 .gallery-modal{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content:center;
 
   /* justify-content: space-between; */
 
@@ -67,9 +89,35 @@ height: 250px;
 
 .footer{
   display: flex;
-  height: 207px;
+  height: 20vh;
   background-color: #ff7f00;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+.header-links{
+  display: flex;
+  justify-content: space-between;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+li{
+  margin-right: 50px;
+}
+a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.clean-list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.rights{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }

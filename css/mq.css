@@ -1,0 +1,28 @@
+@media (max-width: 740px) {
+    .main-header {
+        background-color: red;     
+    }
+    
+    .gallery-modal img{
+        min-width: 150px;
+    }
+
+    .main-layout{
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+
+    .canvas-container {
+        height: 40vh;
+    }
+
+    .editing-settings{
+        height: 30vh;
+    }
+
+    #my-canvas {
+        max-height: 40vh;
+        /* min-width: 150px; */
+    }
+}

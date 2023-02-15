@@ -61,6 +61,13 @@ function onSwitchLines() {
     switchLines()
 }
 
+function showGallery(){
+    var elGalleryModal = document.querySelector('.gallery-modal')
+    var elMain = document.querySelector('.main-layout')
+    elGalleryModal.style.display = 'flex'
+    elMain.style.display = 'none'
+}
+
 // function addTextLine() {
 //     var elTxtSection = document.querySelector('.text-edit')
 //     elTxtSection.innerHTML += '<input oninput="setLineTxt(this)" id="1" class="input-text1" type="text"></input>'

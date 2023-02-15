@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mq.css">
     <title>Document</title>
 </head>
 
@@ -15,11 +16,14 @@
             Meme-gen
         </section>
         <section class="nav-bar">
-            <a href="">Gallery</a>
+            <ul class="header-links clean-list">
+                <li><a onclick="showGallery()" href="">Gallery</a></li>
+                <li><a href="">About</a></li>
+            </ul>
         </section>
     </header>
     <div class="gallery-modal">
-        <img id="1" onclick="onImgSelect(this)" src="/img/1.jpg" alt="">
+        <img id="1" onclick="onImgSelect(this)" src="./img/1.jpg" alt="">
         <img id="2" onclick="onImgSelect(this)" src="/img/2.jpg" alt="">
         <img id="3" onclick="onImgSelect(this)" src="/img/3.jpg" alt="">
         <img id="4" onclick="onImgSelect(this)" src="/img/4.jpg" alt="">
@@ -39,20 +43,29 @@
         </div>
         <div class="editing-settings">
             <section class="text-edit">
+                <!-- <label for="0">Enter Text:</label> -->
                 <input oninput="setLineTxt(this)" id="0" class="input-text1" type="text">
             </section>
-            <input onchange="onSetColor(this.value)" class="color" type="color">
-            <label for="pixels">Pixels (between 20 and 80):</label>
-            <input onchange="onSetSize(this.value)" type="number" id="pixels" name="pixels" min="20" max="80">
-            <button onclick="onSwitchLines()"><img src="img/up-down.png" width="15"></button>
+            <section>
+                <label for="txt-color">Text Color:</label>
+                <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color">
+            </section>
+            <section>
+                <label for="pixels">Pixels (between 20 and 80):</label>
+                <input onchange="onSetSize(this.value)" type="number" id="pixels" name="pixels" min="20" max="80">
+            </section>
+            <section>
+                <label for="lines">Switch Lines:</label>
+                <button id="lines" onclick="onSwitchLines()"><img src="img/up-down.png" width="15"></button>
+            </section>
         </div>
     </div>
 
     <footer class="footer">
-        <div>
+        <div class="logo">
             Meme-gen
         </div>
-        <div>
+        <div class="rights">
             All rights...
         </div>
     </footer>
