@@ -12,24 +12,65 @@ function onInit() {
 function renderMeme() {
     var currMeme = getMeme()
     console.log(currMeme)
+
     var img = document.getElementById(currMeme.selectedImgId)
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+
     gCtx.lineWidth = 3
     gCtx.strokeStyle = currMeme.lines[currMeme.selectedLineIdx].color
     gCtx.fillStyle = currMeme.lines[currMeme.selectedLineIdx].color
     gCtx.font = currMeme.lines[currMeme.selectedLineIdx].size + 'px arial'
     gCtx.textAlign = currMeme.lines[currMeme.selectedLineIdx].align
-    gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 50)
-    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+    console.log(currMeme.selectedLineIdx);
+    console.log(currMeme.lines.length);
+    for (var i = 0; i<currMeme.lines.length; i++){
+        gCtx.strokeText(currMeme.lines[i].txt, 400, currMeme.lines[i].y)
+    }
+    
+    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y +20)
+    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y -currMeme.lines[currMeme.selectedLineIdx].size)
+
+    // if (currMeme.selectedLineIdx === 0) {
+    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 100)
+    // } else if (currMeme.selectedLineIdx === 1) {
+    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 800)
+    // } else {
+    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 500)
+    // }
+
 }
 
-function onImgSelect(el){
+function onImgSelect(el) {
     setImg(el)
     renderMeme()
+    var elGalleryModal = document.querySelector('.gallery-modal')
+    var elMain = document.querySelector('.main-layout')
+    elGalleryModal.style.display = 'none'
+    elMain.style.display = 'flex'
 }
 
-function onSetColor(color){
+function onSetColor(color) {
     setColor(color)
 }
+
+function onSetSize(size) {
+    setSize(size)
+}
+
+function onSwitchLines() {
+    switchLines()
+}
+
+// function addTextLine() {
+//     var elTxtSection = document.querySelector('.text-edit')
+//     elTxtSection.innerHTML += '<input oninput="setLineTxt(this)" id="1" class="input-text1" type="text"></input>'
+//     gMeme.lines.push({
+//         txt: ' ',
+//         size: 50,
+//         align: 'left',
+//         color: 'red'
+//     })
+// }
 
 
 

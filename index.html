@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,26 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
+
 <body onload="onInit()">
-    <img id="1" onclick="onImgSelect(this)" src="/img/1.jpg" alt="">
-    <img id="2" onclick="onImgSelect(this)" src="/img/2.jpg" alt="">
+    <header class="main-header">
+        <section class="logo">
+            Meme-gen
+        </section>
+        <section class="nav-bar">
+            <a href="">Gallery</a>
+        </section>
+    </header>
+    <div class="gallery-modal">
+        <img id="1" onclick="onImgSelect(this)" src="/img/1.jpg" alt="">
+        <img id="2" onclick="onImgSelect(this)" src="/img/2.jpg" alt="">
+        <img id="3" onclick="onImgSelect(this)" src="/img/3.jpg" alt="">
+        <img id="4" onclick="onImgSelect(this)" src="/img/4.jpg" alt="">
+        <img id="5" onclick="onImgSelect(this)" src="/img/5.jpg" alt="">
+        <img id="6" onclick="onImgSelect(this)" src="/img/6.jpg" alt="">
+        <img id="7" onclick="onImgSelect(this)" src="/img/7.jpg" alt="">
+        <img id="8" onclick="onImgSelect(this)" src="/img/8.jpg" alt="">
+    </div>
     <!-- <div>
         <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
     </div> -->
@@ -18,17 +36,30 @@
             <!-- <input class="background" type="text"> -->
             <canvas id="my-canvas" width="1000" height="1000" style="outline: 2px solid green">
             </canvas>
-          </div>
-          <div>
-            <input oninput="setLineTxt(this.value)" class="input-text1" type="text">
+        </div>
+        <div class="editing-settings">
+            <section class="text-edit">
+                <input oninput="setLineTxt(this)" id="0" class="input-text1" type="text">
+            </section>
             <input onchange="onSetColor(this.value)" class="color" type="color">
-          </div>
+            <label for="pixels">Pixels (between 20 and 80):</label>
+            <input onchange="onSetSize(this.value)" type="number" id="pixels" name="pixels" min="20" max="80">
+            <button onclick="onSwitchLines()"><img src="img/up-down.png" width="15"></button>
+        </div>
     </div>
-    
 
+    <footer class="footer">
+        <div>
+            Meme-gen
+        </div>
+        <div>
+            All rights...
+        </div>
+    </footer>
 
 
     <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
