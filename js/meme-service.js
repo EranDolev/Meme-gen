@@ -1,6 +1,7 @@
 'use strict'
 
 var gMeme
+var gMemes = []
 
 function setImg(imgEl){
     console.log(imgEl)
@@ -71,20 +72,13 @@ function setSize(size){
 }
 
 function switchLines(){
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.selectedLineIdx = 1
-    }else {gMeme.selectedLineIdx = 0}
+    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) {
+        gMeme.selectedLineIdx = 0
+    }else {gMeme.selectedLineIdx = gMeme.selectedLineIdx + 1}
     console.log(gMeme.selectedLineIdx)
     renderMeme()
-
     //sets current values on DOM
-    var elTextColor = document.querySelector('.color')
-    var elText = document.querySelector('.input-text1')
-    var elSize = document.getElementById('pixels')
-    elTextColor.value = gMeme.lines[gMeme.selectedLineIdx].color
-    elText.value = gMeme.lines[gMeme.selectedLineIdx].txt
-    elSize.value = gMeme.lines[gMeme.selectedLineIdx].size
-    console.log(elTextColor.value);
+    showValues()
 }
 
 function drawLine(x, y){
@@ -95,4 +89,40 @@ function drawLine(x, y){
     gCtx.lineWidth = 5
     gCtx.strokeStyle = 'white'
     gCtx.stroke()
+}
+
+function addLine(){
+    gMeme.lines.push({ txt: ' ', 
+    size: 50, 
+    align: 'left', 
+    color: '#000000',
+    y: 500})
+    console.log(gMeme);
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    renderMeme()
+    showValues()
+}
+
+function removeLine(){
+    gMeme.lines.splice(gMeme.selectedLineIdx,1)
+    gMeme.selectedLineIdx = 0
+    renderMeme()
+    showValues()
+    console.log(gMeme);
+}
+
+function disableRemoveLine(){
+    if (gMeme.lines.length === 1){
+        document.querySelector('.remove-line').disabled = true
+    } else {document.querySelector('.remove-line').disabled = false}
+}
+
+function showValues(){
+    var elTextColor = document.querySelector('.color')
+    var elText = document.querySelector('.input-text1')
+    var elSize = document.getElementById('pixels')
+    elTextColor.value = gMeme.lines[gMeme.selectedLineIdx].color
+    elText.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    elSize.value = gMeme.lines[gMeme.selectedLineIdx].size
+    console.log(elTextColor.value);
 }

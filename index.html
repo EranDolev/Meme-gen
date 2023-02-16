@@ -36,6 +36,10 @@
                 <input oninput="setLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
             </section>
             <section>
+                <button onclick="addLine()">Add Line</button>
+                <button class="remove-line" onclick="removeLine()">Remove Line</button>
+            </section>
+            <section>
                 <label for="txt-color">Text Color:</label>
                 <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color">
             </section>
@@ -44,8 +48,11 @@
                 <input onchange="onSetSize(this.value)" value="50" type="number" id="pixels" name="pixels" min="20" max="80">
             </section>
             <section>
-                <label for="lines">Switch Lines:</label>
+                <!-- <label for="lines">Switch Lines:</label> -->
                 <button id="lines" onclick="onSwitchLines()"><img src="img/up-down.png" width="15"></button>
+            </section>
+            <section>
+                <button class="saveImg" onclick="saveToStorage()">Save</button>
             </section>
         </div>
     </div>

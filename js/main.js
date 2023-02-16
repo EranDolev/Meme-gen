@@ -11,6 +11,7 @@ function onInit() {
 }
 
 function renderMeme() {
+    disableRemoveLine()
     var currMeme = getMeme()
     var img = document.getElementById(currMeme.selectedImgId)
 
@@ -64,6 +65,9 @@ function showGallery() {
 
 function toggleMenu(){
     document.querySelector('.header-links').classList.toggle('display-block')
+    if (document.querySelector('.menu').innerHTML === 'X'){
+        document.querySelector('.menu').innerHTML = '☰'
+    } else {document.querySelector('.menu').innerHTML = 'X'}
 }
 
 // function addTextLine() {
