@@ -13,11 +13,15 @@ function setImg(imgEl){
             size: 50, 
             align: 'left', 
             color: '#000000',
+            sColor: '#000000',
+            x: 400,
             y: 100},
             { txt: ' ', 
             size: 50, 
             align: 'left', 
             color: '#000000',
+            sColor: '#000000',
+            x:400,
             y: 800}
         ] ,
         
@@ -57,6 +61,18 @@ function setColor(color){
     console.log(gMeme)
 }
 
+function setStrokeColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].sColor = color
+    renderMeme()
+    // gCtx.lineWidth = 3
+    // gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
+    // gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
+    // gCtx.font = gMeme.lines[gMeme.selectedLineIdx].size + 'px arial'
+    // gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
+    // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
+    console.log(gMeme)
+}
+
 function setSize(size){
     if (size >= 20 && size <= 80){
     gMeme.lines[gMeme.selectedLineIdx].size = size
@@ -69,6 +85,25 @@ function setSize(size){
     // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
     console.log(gMeme)
     } else return
+}
+
+function addSize(){
+    if (gMeme.lines[gMeme.selectedLineIdx].size >= 80) {
+        return
+    } else {
+        gMeme.lines[gMeme.selectedLineIdx].size += 2
+        renderMeme()
+    }
+}
+
+
+function decSize(){
+    if (gMeme.lines[gMeme.selectedLineIdx].size <= 20) {
+        return
+    } else {
+        gMeme.lines[gMeme.selectedLineIdx].size -= 2
+        renderMeme()
+    }
 }
 
 function switchLines(){
@@ -96,6 +131,8 @@ function addLine(){
     size: 50, 
     align: 'left', 
     color: '#000000',
+    sColor: '#000000',
+    x: 400,
     y: 500})
     console.log(gMeme);
     gMeme.selectedLineIdx = gMeme.lines.length - 1
@@ -117,12 +154,62 @@ function disableRemoveLine(){
     } else {document.querySelector('.remove-line').disabled = false}
 }
 
+function alignChange(val){
+    gMeme.lines[gMeme.selectedLineIdx].align = val
+    renderMeme()
+}
+
+function moveUp(){
+    gMeme.lines[gMeme.selectedLineIdx].y -= 10
+    renderMeme()
+}
+
+function moveDown(){
+    gMeme.lines[gMeme.selectedLineIdx].y += 10
+    renderMeme()
+}
+
 function showValues(){
     var elTextColor = document.querySelector('.color')
     var elText = document.querySelector('.input-text1')
-    var elSize = document.getElementById('pixels')
     elTextColor.value = gMeme.lines[gMeme.selectedLineIdx].color
     elText.value = gMeme.lines[gMeme.selectedLineIdx].txt
-    elSize.value = gMeme.lines[gMeme.selectedLineIdx].size
     console.log(elTextColor.value);
 }
+
+// function saveToStorage(){
+//     gMemes.push(gMeme)
+//     console.log(gMemes)
+// }
+
+// function showSavedMemes(){
+//     let elMemesCont = document.querySelector('.saved-memes')
+//     let elGallery = document.querySelector('.gallery-modal')
+//     var strHtmls = gMemes.map(meme =>
+//         `<tr>
+//             <td><img class="small-image" src="./img/${meme.selectedImgId}.jpg" alt=""></td>
+//             <td>${meme.lines.length - 1}</td>
+//             <td><button onclick="editMeme(${meme})">Edit</button></td>
+//         </tr>`
+//         )
+//         strHtmls.unshift(`<table>
+//         <tr>
+//         <th>Image</th>
+//         <th>Number Of Lines</th>
+//         <th>Edit</th>
+//     </tr>`
+//     )
+//     strHtmls.push(`</table>`)
+//     elMemesCont.innerHTML = strHtmls.join('')
+//     elMemesCont.classList.toggle('display-none')
+//     elGallery.classList.toggle('display-none')
+//     console.log(elGallery)
+// }
+
+// function editMeme(meme){
+//     console.log(meme)
+//     gMeme = meme
+//     renderMeme()
+//     let elMemesCont = document.querySelector('.saved-memes')
+//     elMemesCont.classList.toggle('display-none')
+// }

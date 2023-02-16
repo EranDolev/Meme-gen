@@ -63,9 +63,15 @@
 
     .display-block{
         display: block;
+      }
+
+    li{
+        padding-bottom: 30px;
+        border-bottom: 1px solid black;
     }
 
-    a{
+
+    li span{
         color: black;
     }
 

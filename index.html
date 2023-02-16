@@ -18,12 +18,14 @@
         <section class="nav-bar">
             <div onclick="toggleMenu()" type="button" class="menu">☰</div>
             <ul class="header-links clean-list">
-                <li><a onclick="showGallery()" href="">Gallery</a></li>
-                <li><a href="">About</a></li>
+                <li onclick="showGallery()"><span>Gallery</span></li>
+                <!-- <li onclick="showSavedMemes()"><span>Saved Memes</span></li> -->
+                <li><span>About</span></li>
             </ul>
         </section>
     </header>
     <div class="gallery-modal"></div>
+    <!-- <div class="saved-memes display-none"></div> -->
     <div class="main-layout">
         <div class="canvas-container">
             <!-- <input class="background" type="text"> -->
@@ -33,27 +35,46 @@
         <div class="editing-settings">
             <section class="text-edit">
                 <!-- <label for="0">Enter Text:</label> -->
-                <input oninput="setLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
+                <input oninput="onSetLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
             </section>
             <section>
-                <button onclick="addLine()">Add Line</button>
-                <button class="remove-line" onclick="removeLine()">Remove Line</button>
+                <button title="Move line up" onclick="onMoveUp()"><img src="img/up.png" width="15" height="30"></button>
+                <button title="Move line down" onclick="onMoveDown()"><img src="img/down.png" width="15" height="30"></button>
+                <button title="Select next line" id="lines" onclick="onSwitchLines()"><img src="img/up-and-down.png" width="30"></button>
+                <button title="add new line" onclick="onAddLine()"><img src="img/add.png" width="30"></button>
+                <button title="Remove current line" class="remove-line" onclick="onRemoveLine()"><img src="img/trash.png" width="30"></button>
             </section>
             <section>
-                <label for="txt-color">Text Color:</label>
-                <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color">
+                <!-- <label for="txt-color">Text Color:</label> -->
+                <button>
+                    <label for="txt-color">
+                        <img title="Change color" src="img/paint.png" for="txt-color"  width="30" alt="">
+                        <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color" style="display: none;">
+                    </label>
+                </button>
+                <button>
+                    <label for="stroke-color">
+                        <img title="Change color" src="img/stroke.png" for="stroke-color"  width="30" alt="">
+                        <input onchange="onSetStrokeColor(this.value)" id="stroke-color" class="color" type="color" style="display: none;">
+                    </label>
+                </button>
             </section>
             <section>
-                <label for="pixels">Pixels (20 - 80):</label>
-                <input onchange="onSetSize(this.value)" value="50" type="number" id="pixels" name="pixels" min="20" max="80">
+                <button title="Increase text size" onclick="onAddSize()"><img src="img/increase.png" width="30"></button>
+                <button title="Decrease text size" onclick="onDecSize()"><img src="img/decrease.png" width="30"></button>
+                <button title="Align left" onclick="onAlignChange('right')"><img src="img/right.png" width="30"></button>
+                <button title="Align center" onclick="onAlignChange('center')"><img src="img/center.png" width="30"></button>
+                <button title="Align right" onclick="onAlignChange('left')"><img src="img/left.png" width="30"></button>
             </section>
             <section>
-                <!-- <label for="lines">Switch Lines:</label> -->
-                <button id="lines" onclick="onSwitchLines()"><img src="img/up-down.png" width="15"></button>
+                <button class="save-btn">
+                    <a class="save-btn-link" href="#" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+                </button>
+                <button class="share" onclick="onUploadImg()">Share</button>
             </section>
-            <section>
+            <!-- <section>
                 <button class="saveImg" onclick="saveToStorage()">Save</button>
-            </section>
+            </section> -->
         </div>
     </div>
 
