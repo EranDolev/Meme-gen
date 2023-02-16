@@ -38,33 +38,47 @@
                 <input oninput="onSetLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
             </section>
             <section>
-                <button title="Move line up" onclick="onMoveUp()"><img src="img/up.png" width="15" height="30"></button>
-                <button title="Move line down" onclick="onMoveDown()"><img src="img/down.png" width="15" height="30"></button>
-                <button title="Select next line" id="lines" onclick="onSwitchLines()"><img src="img/up-and-down.png" width="30"></button>
-                <button title="add new line" onclick="onAddLine()"><img src="img/add.png" width="30"></button>
-                <button title="Remove current line" class="remove-line" onclick="onRemoveLine()"><img src="img/trash.png" width="30"></button>
+                <button title="Move line up" class="def-btn" onclick="onMoveUp()"><img class="def-img" src="img/up.png" width="15" height="30"></button>
+                <button title="Move line down" class="def-btn" onclick="onMoveDown()"><img class="def-img"  src="img/down.png" width="15" height="30"></button>
+                <button title="Select next line" class="def-btn" id="lines" onclick="onSwitchLines()"><img class="def-img"  src="img/up-and-down.png" width="30"></button>
+                <button title="add new line" class="def-btn" onclick="onAddLine()"><img class="def-img"  src="img/add.png" width="30"></button>
+                <button title="Remove current line" class="remove-line def-btn" onclick="onRemoveLine()"><img class="def-img" src="img/trash.png" width="30"></button>
             </section>
             <section>
-                <!-- <label for="txt-color">Text Color:</label> -->
-                <button>
+                <button title="Move line up" class="def-btn" onclick="onMoveRight()"><img class="def-img" src="img/move right.png" width="15" height="30"></button>
+                <button title="Move line down" class="def-btn" onclick="onMoveLeft()"><img class="def-img"  src="img/move left.png" width="15" height="30"></button>
+
+                <button class="def-btn">
                     <label for="txt-color">
-                        <img title="Change color" src="img/paint.png" for="txt-color"  width="30" alt="">
+                        <img class="def-img"  title="Change color" src="img/paint.png" for="txt-color"  width="30" alt="">
                         <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color" style="display: none;">
                     </label>
                 </button>
-                <button>
+                <button class="def-btn">
                     <label for="stroke-color">
-                        <img title="Change color" src="img/stroke.png" for="stroke-color"  width="30" alt="">
+                        <img class="def-img"  title="Change color" src="img/stroke.png" for="stroke-color"  width="30" alt="">
                         <input onchange="onSetStrokeColor(this.value)" id="stroke-color" class="color" type="color" style="display: none;">
                     </label>
                 </button>
             </section>
             <section>
-                <button title="Increase text size" onclick="onAddSize()"><img src="img/increase.png" width="30"></button>
-                <button title="Decrease text size" onclick="onDecSize()"><img src="img/decrease.png" width="30"></button>
-                <button title="Align left" onclick="onAlignChange('right')"><img src="img/right.png" width="30"></button>
-                <button title="Align center" onclick="onAlignChange('center')"><img src="img/center.png" width="30"></button>
-                <button title="Align right" onclick="onAlignChange('left')"><img src="img/left.png" width="30"></button>
+                <button title="Increase text size" class="def-btn" onclick="onAddSize()"><img class="def-img"  src="img/increase.png" width="30"></button>
+                <button title="Decrease text size" class="def-btn" onclick="onDecSize()"><img class="def-img"  src="img/decrease.png" width="30"></button>
+                <button title="Align left" class="def-btn" onclick="onAlignChange('right')"><img class="def-img"  src="img/right.png" width="30"></button>
+                <button title="Align center" class="def-btn" onclick="onAlignChange('center')"><img class="def-img" src="img/center.png" width="30"></button>
+                <button title="Align right" class="def-btn" onclick="onAlignChange('left')"><img class="def-img" src="img/left.png" width="30"></button>
+            </section>
+            <section>
+                <div class="scrolling-wrapper">
+                    <button onclick="onSetEmoji(this.value)" value="😀" class="card">😀</button>
+                    <button onclick="onSetEmoji(this.value)" value="😂" class="card">😂</button>
+                    <button onclick="onSetEmoji(this.value)" value="😈" class="card">😈</button>
+                    <button onclick="onSetEmoji(this.value)" value="😎" class="card">😎</button>
+                    <button onclick="onSetEmoji(this.value)" value="😍" class="card">😍</button>
+                    <button onclick="onSetEmoji(this.value)" value="😋" class="card">😋</button>
+                    <button onclick="onSetEmoji(this.value)" value="😡" class="card">😡</button>
+                    <button onclick="onSetEmoji(this.value)" value="😭" class="card">😭</button>
+                </div>
             </section>
             <section>
                 <button class="save-btn">

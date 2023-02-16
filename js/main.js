@@ -19,7 +19,7 @@ function renderMeme() {
 
     for (var i = 0; i < currMeme.lines.length; i++) {
         gCtx.beginPath()
-        gCtx.lineWidth = 3
+        gCtx.lineWidth = 2
         gCtx.strokeStyle = currMeme.lines[i].sColor
         gCtx.fillStyle = currMeme.lines[i].color
         gCtx.font = currMeme.lines[i].size + 'px Impact'
@@ -69,8 +69,8 @@ function onSwitchLines() {
     switchLines()
 }
 
-function onAddLine(){
-    addLine()
+function onAddLine(txt){
+    addLine(txt)
 }
 
 function onSetLineTxt(el){
@@ -93,6 +93,18 @@ function onMoveDown(){
    moveDown()
 }
 
+function onMoveRight(){
+   moveRight()
+}
+
+function onMoveLeft(){
+   moveLeft()
+}
+
+function onSetEmoji(emoji){
+    onAddLine(emoji)
+}
+
 function showGallery() {
     var elGalleryModal = document.querySelector('.gallery-modal')
     var elMain = document.querySelector('.main-layout')
@@ -108,6 +120,24 @@ function toggleMenu(){
 }
 
 function downloadImg(elLink) {
+    var currMeme = getMeme()
+    var img = document.getElementById(currMeme.selectedImgId)
+
+    gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+
+    for (var i = 0; i < currMeme.lines.length; i++) {
+        gCtx.beginPath()
+        gCtx.lineWidth = 3
+        gCtx.strokeStyle = currMeme.lines[i].sColor
+        gCtx.fillStyle = currMeme.lines[i].color
+        gCtx.font = currMeme.lines[i].size + 'px Impact'
+        gCtx.textAlign = currMeme.lines[i].align
+        console.log(currMeme.selectedLineIdx);
+        console.log(currMeme.lines.length);
+        gCtx.strokeText(currMeme.lines[i].txt, currMeme.lines[i].x, currMeme.lines[i].y)
+        gCtx.fillText(currMeme.lines[i].txt, currMeme.lines[i].x, currMeme.lines[i].y)
+    }
+
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
     elLink.href = imgContent
 }

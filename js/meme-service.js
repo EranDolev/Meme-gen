@@ -38,57 +38,31 @@ function setLineTxt(el){
     gMeme.lines[gMeme.selectedLineIdx].txt = el.value
     console.log(gMeme)
     renderMeme()
-    // gCtx.lineWidth = 3
-    // gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.font = gMeme.lines[gMeme.selectedLineIdx].size + 'px arial'
-    // gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-    // // gCtx.textBaseline = 'middle'
-    // // gCtx.fillText(val, 500, 500)
-    // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
     console.log(gMeme)
 }
 
 function setColor(color){
     gMeme.lines[gMeme.selectedLineIdx].color = color
     renderMeme()
-    // gCtx.lineWidth = 3
-    // gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.font = gMeme.lines[gMeme.selectedLineIdx].size + 'px arial'
-    // gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-    // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
     console.log(gMeme)
 }
 
 function setStrokeColor(color){
     gMeme.lines[gMeme.selectedLineIdx].sColor = color
     renderMeme()
-    // gCtx.lineWidth = 3
-    // gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.font = gMeme.lines[gMeme.selectedLineIdx].size + 'px arial'
-    // gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-    // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
     console.log(gMeme)
 }
 
 function setSize(size){
-    if (size >= 20 && size <= 80){
+    if (size >= 20 && size <= 100){
     gMeme.lines[gMeme.selectedLineIdx].size = size
     renderMeme()
-    // gCtx.lineWidth = 3
-    // gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    // gCtx.font = gMeme.lines[gMeme.selectedLineIdx].size + 'px arial'
-    // gCtx.textAlign = gMeme.lines[gMeme.selectedLineIdx].align
-    // gCtx.strokeText(gMeme.lines[gMeme.selectedLineIdx].txt, 400, 50)
     console.log(gMeme)
     } else return
 }
 
 function addSize(){
-    if (gMeme.lines[gMeme.selectedLineIdx].size >= 80) {
+    if (gMeme.lines[gMeme.selectedLineIdx].size >= 100) {
         return
     } else {
         gMeme.lines[gMeme.selectedLineIdx].size += 2
@@ -126,8 +100,8 @@ function drawLine(x, y){
     gCtx.stroke()
 }
 
-function addLine(){
-    gMeme.lines.push({ txt: ' ', 
+function addLine(txt =' '){
+    gMeme.lines.push({ txt, 
     size: 50, 
     align: 'left', 
     color: '#000000',
@@ -166,6 +140,16 @@ function moveUp(){
 
 function moveDown(){
     gMeme.lines[gMeme.selectedLineIdx].y += 10
+    renderMeme()
+}
+
+function moveRight(){
+    gMeme.lines[gMeme.selectedLineIdx].x += 10
+    renderMeme()
+}
+
+function moveLeft(){
+    gMeme.lines[gMeme.selectedLineIdx].x -= 10
     renderMeme()
 }
 
