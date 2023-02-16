@@ -11,12 +11,12 @@ function setImg(imgEl){
             { txt: ' ', 
             size: 50, 
             align: 'left', 
-            color: 'red',
+            color: '#000000',
             y: 100},
             { txt: ' ', 
             size: 50, 
             align: 'left', 
-            color: 'red',
+            color: '#000000',
             y: 800}
         ] ,
         
@@ -76,6 +76,15 @@ function switchLines(){
     }else {gMeme.selectedLineIdx = 0}
     console.log(gMeme.selectedLineIdx)
     renderMeme()
+
+    //sets current values on DOM
+    var elTextColor = document.querySelector('.color')
+    var elText = document.querySelector('.input-text1')
+    var elSize = document.getElementById('pixels')
+    elTextColor.value = gMeme.lines[gMeme.selectedLineIdx].color
+    elText.value = gMeme.lines[gMeme.selectedLineIdx].txt
+    elSize.value = gMeme.lines[gMeme.selectedLineIdx].size
+    console.log(elTextColor.value);
 }
 
 function drawLine(x, y){

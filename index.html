@@ -16,25 +16,14 @@
             Meme-gen
         </section>
         <section class="nav-bar">
+            <div onclick="toggleMenu()" type="button" class="menu">☰</div>
             <ul class="header-links clean-list">
                 <li><a onclick="showGallery()" href="">Gallery</a></li>
                 <li><a href="">About</a></li>
             </ul>
         </section>
     </header>
-    <div class="gallery-modal">
-        <img id="1" onclick="onImgSelect(this)" src="./img/1.jpg" alt="">
-        <img id="2" onclick="onImgSelect(this)" src="/img/2.jpg" alt="">
-        <img id="3" onclick="onImgSelect(this)" src="/img/3.jpg" alt="">
-        <img id="4" onclick="onImgSelect(this)" src="/img/4.jpg" alt="">
-        <img id="5" onclick="onImgSelect(this)" src="/img/5.jpg" alt="">
-        <img id="6" onclick="onImgSelect(this)" src="/img/6.jpg" alt="">
-        <img id="7" onclick="onImgSelect(this)" src="/img/7.jpg" alt="">
-        <img id="8" onclick="onImgSelect(this)" src="/img/8.jpg" alt="">
-    </div>
-    <!-- <div>
-        <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
-    </div> -->
+    <div class="gallery-modal"></div>
     <div class="main-layout">
         <div class="canvas-container">
             <!-- <input class="background" type="text"> -->
@@ -44,15 +33,15 @@
         <div class="editing-settings">
             <section class="text-edit">
                 <!-- <label for="0">Enter Text:</label> -->
-                <input oninput="setLineTxt(this)" id="0" class="input-text1" type="text">
+                <input oninput="setLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
             </section>
             <section>
                 <label for="txt-color">Text Color:</label>
                 <input onchange="onSetColor(this.value)" id="txt-color" class="color" type="color">
             </section>
             <section>
-                <label for="pixels">Pixels (between 20 and 80):</label>
-                <input onchange="onSetSize(this.value)" type="number" id="pixels" name="pixels" min="20" max="80">
+                <label for="pixels">Pixels (20 - 80):</label>
+                <input onchange="onSetSize(this.value)" value="50" type="number" id="pixels" name="pixels" min="20" max="80">
             </section>
             <section>
                 <label for="lines">Switch Lines:</label>
@@ -71,6 +60,7 @@
     </footer>
 
 
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>

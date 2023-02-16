@@ -1,28 +1,80 @@
 @media (max-width: 740px) {
     .main-header {
         background-color: red;     
+        height: 5vh;
     }
     
     .gallery-modal img{
         min-width: 150px;
     }
 
+    .nav-bar{
+        margin-right: 80px;
+    }
+
+    .logo{
+        font: 20px cursive;
+    }
+
     .main-layout{
         flex-direction: column;
         flex-wrap: wrap;
         align-content: space-around;
+        width: 80vw;
+        margin: auto;
+        align-items: center;
     }
 
     .canvas-container {
-        height: 40vh;
+        min-height: 50vh;
+        height: 100%;
+        width: 90%;
+        max-width: 50vh;
+        /* max-height: 50vh; */
+
     }
 
     .editing-settings{
         height: 30vh;
+        grid-template-rows: repeat(auto-fit, 4vh);
+        width: 45vw;
+        min-width: 150px;
     }
 
     #my-canvas {
-        max-height: 40vh;
-        /* min-width: 150px; */
+        max-height: 50vh;
+        min-width: 150px;
+        max-width: 50vh;
+    }
+
+    .footer{
+        height: 15vh;
+    }
+
+    .header-links {
+        display: none;
+        position: absolute;
+        background-color: lightcyan;
+        justify-content: space-between;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        height: 100vh;
+        z-index: 2;
+    }
+
+    .display-block{
+        display: block;
+    }
+
+    a{
+        color: black;
+    }
+
+    .menu{
+        display: block;
+        font-size: 30px;
+    }
+
+    .menu:hover{
+        cursor: pointer;
     }
 }

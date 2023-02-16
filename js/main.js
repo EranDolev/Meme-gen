@@ -7,36 +7,30 @@ let gCtx
 function onInit() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    renderGallery()
 }
 
 function renderMeme() {
     var currMeme = getMeme()
-    console.log(currMeme)
-
     var img = document.getElementById(currMeme.selectedImgId)
+
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
-    gCtx.lineWidth = 3
-    gCtx.strokeStyle = currMeme.lines[currMeme.selectedLineIdx].color
-    gCtx.fillStyle = currMeme.lines[currMeme.selectedLineIdx].color
-    gCtx.font = currMeme.lines[currMeme.selectedLineIdx].size + 'px arial'
-    gCtx.textAlign = currMeme.lines[currMeme.selectedLineIdx].align
-    console.log(currMeme.selectedLineIdx);
-    console.log(currMeme.lines.length);
-    for (var i = 0; i<currMeme.lines.length; i++){
+    for (var i = 0; i < currMeme.lines.length; i++) {
+        gCtx.beginPath()
+        gCtx.lineWidth = 1
+        gCtx.strokeStyle = currMeme.lines[i].color
+        gCtx.fillStyle = currMeme.lines[i].color
+        gCtx.font = currMeme.lines[i].size + 'px Impact'
+        gCtx.textAlign = currMeme.lines[i].align
+        console.log(currMeme.selectedLineIdx);
+        console.log(currMeme.lines.length);
         gCtx.strokeText(currMeme.lines[i].txt, 400, currMeme.lines[i].y)
+        gCtx.fillText(currMeme.lines[i].txt, 400, currMeme.lines[i].y)
     }
-    
-    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y +20)
-    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y -currMeme.lines[currMeme.selectedLineIdx].size)
 
-    // if (currMeme.selectedLineIdx === 0) {
-    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 100)
-    // } else if (currMeme.selectedLineIdx === 1) {
-    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 800)
-    // } else {
-    //     gCtx.strokeText(currMeme.lines[currMeme.selectedLineIdx].txt, 400, 500)
-    // }
+    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y + 20)
+    drawLine(400, currMeme.lines[currMeme.selectedLineIdx].y - currMeme.lines[currMeme.selectedLineIdx].size)
 
 }
 
@@ -61,11 +55,15 @@ function onSwitchLines() {
     switchLines()
 }
 
-function showGallery(){
+function showGallery() {
     var elGalleryModal = document.querySelector('.gallery-modal')
     var elMain = document.querySelector('.main-layout')
     elGalleryModal.style.display = 'flex'
     elMain.style.display = 'none'
+}
+
+function toggleMenu(){
+    document.querySelector('.header-links').classList.toggle('display-block')
 }
 
 // function addTextLine() {
