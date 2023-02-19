@@ -19,4 +19,16 @@
 
 .gallery-img {
     margin: 10px;
-  }
+}
+
+.search-text{
+    text-align: center;
+}
+
+.search-text input{
+    margin-top: 10px;
+    text-align: center;
+    width: 50vw;
+    height: 30px;
+    background-color: rgb(233, 233, 233);
+}

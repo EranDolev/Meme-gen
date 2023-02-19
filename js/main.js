@@ -38,10 +38,12 @@ function onImgSelect(el) {
     setImg(el)
     renderMeme()
     let elGalleryModal = document.querySelector('.gallery-modal')
+    let elSearchText = document.querySelector('.search-text')
     let elMain = document.querySelector('.main-layout')
     let elBtbGallery = document.querySelector('.btn-gallery')
     let elMemesCont = document.querySelector('.saved-memes')
     elGalleryModal.style.display = 'none'
+    elSearchText.style.display = 'none'
     elMain.style.display = 'flex'
     elBtbGallery.style.color = 'white'
 }
@@ -120,8 +122,10 @@ function onSetEmoji(emoji) {
 
 function onShowGallery() {
     var elGalleryModal = document.querySelector('.gallery-modal')
+    var elSearchTexh = document.querySelector('.search-text')
     var elMain = document.querySelector('.main-layout')
     elGalleryModal.style.display = 'flex'
+    elSearchTexh.style.display = 'block'
     elMain.style.display = 'none'
 
     let elBtbGallery = document.querySelector('.btn-gallery')
@@ -133,6 +137,19 @@ function toggleMenu() {
     if (document.querySelector('.menu').innerHTML === 'X') {
         document.querySelector('.menu').innerHTML = '☰'
     } else { document.querySelector('.menu').innerHTML = 'X' }
+}
+
+function onSearchWord(word){
+    console.log(word)
+    let gallery = getGallery()
+    let filtGallery = gallery.filter(photo => {
+        // console.log(photo.searchWord)
+        console.log(photo.searchWord.includes(word))
+        return photo.searchWord.includes(word)
+    })
+    renderGallery(filtGallery)
+    console.log(filtGallery)
+    console.log(gGallery)
 }
 
 function downloadImg(elLink) {
