@@ -1,0 +1,15 @@
+.canvas-container {
+    width: 50%;
+    height: 70vh;
+    position: relative;
+    padding: 20px 0;
+  }
+  
+  #my-canvas {
+    margin-inline: auto;
+    max-width: 65vh;
+    max-height: 65vh;
+    width: 100%;
+    min-width: 380px;
+
+  }

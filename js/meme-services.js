@@ -2,6 +2,7 @@
 
 var gMeme
 var gMemes = []
+var gDrag = false
 
 function setImg(imgEl){
     console.log(imgEl)
@@ -11,18 +12,11 @@ function setImg(imgEl){
         lines: [
             { txt: ' ', 
             size: 50, 
-            align: 'left', 
+            align: 'center', 
             color: '#000000',
             sColor: '#000000',
             x: 400,
             y: 100},
-            { txt: ' ', 
-            size: 50, 
-            align: 'left', 
-            color: '#000000',
-            sColor: '#000000',
-            x:400,
-            y: 800}
         ] ,
         
     }
@@ -33,31 +27,21 @@ function getMeme(){
 }
 
 function setLineTxt(el){
-    console.log(el)
-    console.log(el.id)
     gMeme.lines[gMeme.selectedLineIdx].txt = el.value
-    console.log(gMeme)
-    renderMeme()
-    console.log(gMeme)
 }
 
 function setColor(color){
     gMeme.lines[gMeme.selectedLineIdx].color = color
-    renderMeme()
-    console.log(gMeme)
 }
 
 function setStrokeColor(color){
     gMeme.lines[gMeme.selectedLineIdx].sColor = color
-    renderMeme()
-    console.log(gMeme)
 }
 
 function setSize(size){
     if (size >= 20 && size <= 100){
     gMeme.lines[gMeme.selectedLineIdx].size = size
     renderMeme()
-    console.log(gMeme)
     } else return
 }
 
@@ -101,25 +85,37 @@ function drawLine(x, y){
 }
 
 function addLine(txt =' '){
+    if (gMeme.lines.length === 1){
+        gMeme.lines.push({ txt, 
+            size: 50, 
+            align: 'center', 
+            color: '#000000',
+            sColor: '#000000',
+            x: 400,
+            y: 800})
+            console.log(gMeme);
+            gMeme.selectedLineIdx = gMeme.lines.length - 1
+    } else {
     gMeme.lines.push({ txt, 
     size: 50, 
-    align: 'left', 
+    align: 'center', 
     color: '#000000',
     sColor: '#000000',
     x: 400,
     y: 500})
     console.log(gMeme);
     gMeme.selectedLineIdx = gMeme.lines.length - 1
-    renderMeme()
-    showValues()
+    }
 }
+
+function drawRect(x1, y1, x2, y2) {
+    gCtx.strokeStyle = 'black'
+    gCtx.strokeRect(x1, y1, x2, y2)
+  }
 
 function removeLine(){
     gMeme.lines.splice(gMeme.selectedLineIdx,1)
     gMeme.selectedLineIdx = 0
-    renderMeme()
-    showValues()
-    console.log(gMeme);
 }
 
 function disableRemoveLine(){
@@ -130,27 +126,22 @@ function disableRemoveLine(){
 
 function alignChange(val){
     gMeme.lines[gMeme.selectedLineIdx].align = val
-    renderMeme()
 }
 
 function moveUp(){
     gMeme.lines[gMeme.selectedLineIdx].y -= 10
-    renderMeme()
 }
 
 function moveDown(){
     gMeme.lines[gMeme.selectedLineIdx].y += 10
-    renderMeme()
 }
 
 function moveRight(){
     gMeme.lines[gMeme.selectedLineIdx].x += 10
-    renderMeme()
 }
 
 function moveLeft(){
     gMeme.lines[gMeme.selectedLineIdx].x -= 10
-    renderMeme()
 }
 
 function showValues(){
@@ -158,7 +149,10 @@ function showValues(){
     var elText = document.querySelector('.input-text1')
     elTextColor.value = gMeme.lines[gMeme.selectedLineIdx].color
     elText.value = gMeme.lines[gMeme.selectedLineIdx].txt
-    console.log(elTextColor.value);
+}
+
+function setDrag(val){
+    gDrag = val
 }
 
 // function saveToStorage(){

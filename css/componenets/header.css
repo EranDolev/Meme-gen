@@ -1,0 +1,40 @@
+.main-header {
+    height: 10vh;
+    background-color: #ff7f00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 50px;
+  }
+
+  .header-links {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* .header-links li:hover{
+    color: gray;
+  } */
+
+  .logo {
+    margin-left: 20px;
+    font: 30px cursive;
+    cursor: pointer;
+  }
+
+  .nav-bar {
+    margin-right: 20px;
+    height: 100%;
+  }
+
+  .nav-bar ul{
+    font-size: 25px;
+  }
+
+  .menu {
+    display: none;
+  }

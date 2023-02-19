@@ -5,38 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/mq.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meme-gen</title>
 </head>
 
 <body onload="onInit()">
+
     <header class="main-header">
-        <section class="logo">
+        <section onclick="onShowGallery()" class="logo">
             Meme-gen
         </section>
         <section class="nav-bar">
             <div onclick="toggleMenu()" type="button" class="menu">☰</div>
             <ul class="header-links clean-list">
-                <li onclick="showGallery()"><span>Gallery</span></li>
-                <!-- <li onclick="showSavedMemes()"><span>Saved Memes</span></li> -->
-                <li><span>About</span></li>
+                <li class="btn-gallery" onclick="onShowGallery()">Gallery</li>
+                <li>About</li>
             </ul>
         </section>
     </header>
+
     <div class="gallery-modal"></div>
-    <!-- <div class="saved-memes display-none"></div> -->
+
     <div class="main-layout">
+
         <div class="canvas-container">
-            <!-- <input class="background" type="text"> -->
             <canvas id="my-canvas" width="1000" height="1000" style="outline: 2px solid green">
             </canvas>
         </div>
+
         <div class="editing-settings">
+            
             <section class="text-edit">
-                <!-- <label for="0">Enter Text:</label> -->
                 <input oninput="onSetLineTxt(this)" id="0" placeholder="Enter Text" class="input-text1" type="text">
             </section>
+
             <section>
                 <button title="Move line up" class="def-btn" onclick="onMoveUp()"><img class="def-img" src="img/up.png" width="15" height="30"></button>
                 <button title="Move line down" class="def-btn" onclick="onMoveDown()"><img class="def-img"  src="img/down.png" width="15" height="30"></button>
@@ -44,10 +46,10 @@
                 <button title="add new line" class="def-btn" onclick="onAddLine()"><img class="def-img"  src="img/add.png" width="30"></button>
                 <button title="Remove current line" class="remove-line def-btn" onclick="onRemoveLine()"><img class="def-img" src="img/trash.png" width="30"></button>
             </section>
-            <section>
-                <button title="Move line up" class="def-btn" onclick="onMoveRight()"><img class="def-img" src="img/move right.png" width="15" height="30"></button>
-                <button title="Move line down" class="def-btn" onclick="onMoveLeft()"><img class="def-img"  src="img/move left.png" width="15" height="30"></button>
 
+            <section>
+                <button title="Move line left" class="def-btn" onclick="onMoveLeft()"><img class="def-img move-side move-left"  src="img/move left.png" width="15" height="30"></button>
+                <button title="Move line right" class="def-btn" onclick="onMoveRight()"><img class="def-img move-side" src="img/move right.png" width="15" height="30"></button>
                 <button class="def-btn">
                     <label for="txt-color">
                         <img class="def-img"  title="Change color" src="img/paint.png" for="txt-color"  width="30" alt="">
@@ -61,6 +63,7 @@
                     </label>
                 </button>
             </section>
+
             <section>
                 <button title="Increase text size" class="def-btn" onclick="onAddSize()"><img class="def-img"  src="img/increase.png" width="30"></button>
                 <button title="Decrease text size" class="def-btn" onclick="onDecSize()"><img class="def-img"  src="img/decrease.png" width="30"></button>
@@ -68,42 +71,37 @@
                 <button title="Align center" class="def-btn" onclick="onAlignChange('center')"><img class="def-img" src="img/center.png" width="30"></button>
                 <button title="Align right" class="def-btn" onclick="onAlignChange('left')"><img class="def-img" src="img/left.png" width="30"></button>
             </section>
+
             <section>
                 <div class="scrolling-wrapper">
-                    <button onclick="onSetEmoji(this.value)" value="😀" class="card">😀</button>
-                    <button onclick="onSetEmoji(this.value)" value="😂" class="card">😂</button>
-                    <button onclick="onSetEmoji(this.value)" value="😈" class="card">😈</button>
-                    <button onclick="onSetEmoji(this.value)" value="😎" class="card">😎</button>
-                    <button onclick="onSetEmoji(this.value)" value="😍" class="card">😍</button>
-                    <button onclick="onSetEmoji(this.value)" value="😋" class="card">😋</button>
-                    <button onclick="onSetEmoji(this.value)" value="😡" class="card">😡</button>
-                    <button onclick="onSetEmoji(this.value)" value="😭" class="card">😭</button>
                 </div>
             </section>
+
             <section>
                 <button class="save-btn">
                     <a class="save-btn-link" href="#" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
                 </button>
                 <button class="share" onclick="onUploadImg()">Share</button>
             </section>
-            <!-- <section>
-                <button class="saveImg" onclick="saveToStorage()">Save</button>
-            </section> -->
+
         </div>
+
     </div>
 
     <footer class="footer">
         <div class="logo">
             Meme-gen
         </div>
+
         <div class="rights">
-            All rights...
+            All rights reserved 2023 ©
         </div>
     </footer>
 
 
-    <script src="js/gallery-controller.js"></script>
-    <script src="js/meme-service.js"></script>
+    <script src="js/emojis-service.js"></script>
+    <script src="js/gallery-services.js"></script>
+    <script src="js/meme-services.js"></script>
     <script src="js/main.js"></script>
 </body>
 

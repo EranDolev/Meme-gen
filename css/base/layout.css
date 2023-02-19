@@ -1,0 +1,17 @@
+.main-layout {
+    width: 100vw;
+    display: none;
+    justify-content: center;
+    background-color: #e3e3e3;
+  }
+
+  .editing-settings {
+    padding-top: 20px;
+    display: grid;
+    /* grid-template-rows: 20px 20px 20px 20px; */
+    grid-template-rows: repeat(auto-fit, 70px);
+    width: 30vw;
+    min-width: 250px;
+    justify-items: center;
+    align-items: center;
+  }

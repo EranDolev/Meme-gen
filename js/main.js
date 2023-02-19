@@ -8,12 +8,13 @@ function onInit() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
+    renderEmojis()
 }
 
 function renderMeme() {
     disableRemoveLine()
-    var currMeme = getMeme()
-    var img = document.getElementById(currMeme.selectedImgId)
+    let currMeme = getMeme()
+    let img = document.getElementById(currMeme.selectedImgId)
 
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
@@ -24,44 +25,46 @@ function renderMeme() {
         gCtx.fillStyle = currMeme.lines[i].color
         gCtx.font = currMeme.lines[i].size + 'px Impact'
         gCtx.textAlign = currMeme.lines[i].align
-        console.log(currMeme.selectedLineIdx);
-        console.log(currMeme.lines.length);
         gCtx.strokeText(currMeme.lines[i].txt, currMeme.lines[i].x, currMeme.lines[i].y)
         gCtx.fillText(currMeme.lines[i].txt, currMeme.lines[i].x, currMeme.lines[i].y)
     }
 
     drawLine(currMeme.lines[currMeme.selectedLineIdx].x - 200, currMeme.lines[currMeme.selectedLineIdx].y + 20)
     drawLine(currMeme.lines[currMeme.selectedLineIdx].x - 200, currMeme.lines[currMeme.selectedLineIdx].y - currMeme.lines[currMeme.selectedLineIdx].size)
-
+    // drawRect(currMeme.lines[currMeme.selectedLineIdx].x - currMeme.lines[currMeme.selectedLineIdx].txt.length * 22, currMeme.lines[currMeme.selectedLineIdx].y - currMeme.lines[currMeme.selectedLineIdx].size, currMeme.lines[currMeme.selectedLineIdx].x + 300, currMeme.lines[currMeme.selectedLineIdx].y)
 }
 
 function onImgSelect(el) {
     setImg(el)
     renderMeme()
-    var elGalleryModal = document.querySelector('.gallery-modal')
-    var elMain = document.querySelector('.main-layout')
+    let elGalleryModal = document.querySelector('.gallery-modal')
+    let elMain = document.querySelector('.main-layout')
+    let elBtbGallery = document.querySelector('.btn-gallery')
     let elMemesCont = document.querySelector('.saved-memes')
     elGalleryModal.style.display = 'none'
     elMain.style.display = 'flex'
+    elBtbGallery.style.color = 'white'
 }
 
 function onSetColor(color) {
     setColor(color)
+    renderMeme()
 }
 
 function onSetStrokeColor(color) {
     setStrokeColor(color)
+    renderMeme()
 }
 
 function onSetSize(size) {
     setSize(size)
 }
 
-function onAddSize(){
+function onAddSize() {
     addSize()
 }
 
-function onDecSize(){
+function onDecSize() {
     decSize()
 }
 
@@ -69,54 +72,67 @@ function onSwitchLines() {
     switchLines()
 }
 
-function onAddLine(txt){
+function onAddLine(txt) {
     addLine(txt)
+    renderMeme()
+    showValues()
 }
 
-function onSetLineTxt(el){
+function onSetLineTxt(el) {
     setLineTxt(el)
+    renderMeme()
 }
 
-function onRemoveLine(){
+function onRemoveLine() {
     removeLine()
+    renderMeme()
+    showValues()
 }
 
-function onAlignChange(val){
-   alignChange(val)
+function onAlignChange(val) {
+    alignChange(val)
+    renderMeme()
 }
 
-function onMoveUp(){
-   moveUp()
+function onMoveUp() {
+    moveUp()
+    renderMeme()
 }
 
-function onMoveDown(){
-   moveDown()
+function onMoveDown() {
+    moveDown()
+    renderMeme()
 }
 
-function onMoveRight(){
-   moveRight()
+function onMoveRight() {
+    moveRight()
+    renderMeme()
 }
 
-function onMoveLeft(){
-   moveLeft()
+function onMoveLeft() {
+    moveLeft()
+    renderMeme()
 }
 
-function onSetEmoji(emoji){
+function onSetEmoji(emoji) {
     onAddLine(emoji)
 }
 
-function showGallery() {
+function onShowGallery() {
     var elGalleryModal = document.querySelector('.gallery-modal')
     var elMain = document.querySelector('.main-layout')
     elGalleryModal.style.display = 'flex'
     elMain.style.display = 'none'
+
+    let elBtbGallery = document.querySelector('.btn-gallery')
+    elBtbGallery.style.color = 'black'
 }
 
-function toggleMenu(){
+function toggleMenu() {
     document.querySelector('.header-links').classList.toggle('display-block')
-    if (document.querySelector('.menu').innerHTML === 'X'){
+    if (document.querySelector('.menu').innerHTML === 'X') {
         document.querySelector('.menu').innerHTML = '☰'
-    } else {document.querySelector('.menu').innerHTML = 'X'}
+    } else { document.querySelector('.menu').innerHTML = 'X' }
 }
 
 function downloadImg(elLink) {
@@ -183,31 +199,3 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
 }
-
-// function addTextLine() {
-//     var elTxtSection = document.querySelector('.text-edit')
-//     elTxtSection.innerHTML += '<input oninput="setLineTxt(this)" id="1" class="input-text1" type="text"></input>'
-//     gMeme.lines.push({
-//         txt: ' ',
-//         size: 50,
-//         align: 'left',
-//         color: 'red'
-//     })
-// }
-
-
-
-// function loadImageFromInput(ev, onImageReady) {
-//     const reader = new FileReader()
-//     // After we read the file
-//     reader.onload = function (event) {
-//         let img = new Image() // Create a new html img element
-//         img.src = event.target.result // Set the img src to the img file we read
-//         // Run the callBack func, To render the img on the canvas
-//         img.onload = onImageReady.bind(null, img)
-//         // Can also do it this way:
-//         // img.onload = () => onImageReady(img)
-//     }
-//     reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
-// }
-

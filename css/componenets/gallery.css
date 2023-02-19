@@ -1,0 +1,22 @@
+.gallery-modal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 50px
+}
+
+.gallery-modal img {
+    height: 250px;
+}
+
+.gallery-modal img:hover {
+    opacity: 0.7;
+}
+
+.btn-gallery {
+    color: black;
+}
+
+.gallery-img {
+    margin: 10px;
+  }

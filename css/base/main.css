@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+
+.input-text1 {
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  width: 100%;
+}
+
+.text1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px solid white;
+  color: black;
+}
+
+li {
+  margin-right: 50px;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  min-width: 50px;
+  max-width: 200px;
+}
+
+.saved-memes {
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  height: 70vh;
+  width: 100vw;
+}
+
+

@@ -1,21 +1,33 @@
+@media (max-height: 630px) {
+
+    .share,
+    .save-btn {
+        height: 35px;
+    }
+
+    .editing-settings {
+        height: 45vh;
+    }
+}
+
 @media (max-width: 740px) {
-    .main-header {    
+    .main-header {
         height: 5vh;
     }
-    
-    .gallery-modal img{
+
+    .gallery-modal img {
         min-width: 150px;
     }
 
-    .nav-bar{
+    .nav-bar {
         margin-right: 80px;
     }
 
-    .logo{
+    .logo {
         font: 20px cursive;
     }
 
-    .main-layout{
+    .main-layout {
         flex-direction: column;
         flex-wrap: wrap;
         align-content: space-around;
@@ -33,7 +45,7 @@
 
     }
 
-    .editing-settings{
+    .editing-settings {
         height: 40vh;
         padding-top: 0;
         grid-template-rows: repeat(auto-fit, 6vh);
@@ -47,59 +59,60 @@
         max-width: 40vh;
     }
 
-    .footer{
+    .footer {
         height: 15vh;
     }
 
     .header-links {
         display: none;
         position: absolute;
-        background-color: lightcyan;
+        background-color: rgb(255, 219, 189);
         justify-content: space-between;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         height: 100vh;
         z-index: 2;
     }
 
-    .display-block{
+    .display-block {
         display: block;
-      }
+    }
 
-    li{
+    li {
         padding-bottom: 30px;
         border-bottom: 1px solid black;
     }
 
 
-    li span{
+    li span {
         color: black;
     }
 
-    .menu{
+    .nav-bar .menu {
         display: block;
         font-size: 30px;
     }
 
-    .menu:hover{
+    .menu:hover {
         cursor: pointer;
     }
 
-    .share, .save-btn{
+    .share,
+    .save-btn {
         height: 20px;
         width: 100px;
     }
 
-    .def-btn{
+    .def-btn {
         height: 30px;
         width: 30px;
     }
 
-    .def-img{
+    .def-img {
         height: 20px;
         width: 20px;
     }
 
-    .scrolling-wrapper button{
+    .scrolling-wrapper button {
         font-size: 20px;
-      }
+    }
 }

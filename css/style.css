@@ -1,0 +1,15 @@
+/* BASE */
+@import "base/main.css";
+@import "base/layout.css";
+@import "base/helpers.css";
+@import "base/buttons.css";
+
+
+/* COMPONENTS */
+@import "componenets/header.css";
+@import "componenets/gallery.css";
+@import "componenets/canvas.css";
+@import "componenets/footer.css";
+
+/* MEDIA QUERIS */
+@import "setup/mq.css";

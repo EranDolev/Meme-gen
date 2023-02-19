@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    height: 20vh;
+    background-color: #ff7f00;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .rights {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
